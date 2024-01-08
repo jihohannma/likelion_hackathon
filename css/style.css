@@ -1,0 +1,11 @@
+/* GLOBAL RESET */
+* { box-sizing: border-box; }
+body {margin: 0;}
+
+/* GLOBAL COLORS */
+body { color: rgba(0,0,0,0.9); }
+
+/* GLOBAL TYPOGRAPHY */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
