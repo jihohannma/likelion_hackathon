@@ -50,6 +50,12 @@ header a:hover {
     padding: 0;
 }
 
+.site-id h1 {
+    margin: 0;
+    padding-bottom: 1em;
+    color: #332f242b;
+}
+
 /* SITE NAV */
 .site-nav ul {
     display: flex;
@@ -139,3 +145,17 @@ header a:hover {
     background-color: #658446;
 }
 
+/* FOOTER */
+.site-footer {
+    background-color: #f2e2d0;
+}
+
+.site-footer .container {
+    padding: 5em 0;
+}
+
+.site-footer p {
+    font-size: 0.9em;
+    color: #332f24;
+    line-height: 2;
+}
