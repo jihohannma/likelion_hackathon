@@ -92,10 +92,30 @@ header a:hover {
     line-height: 2;
 }
 
+.page-sub .hero {
+    background-image: url(../IMG/main_internet.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.subhero h1 {
+    font-size: 6.5em;
+    margin: 0;
+    text-shadow: 2px 2px 2px rgba(74, 62, 49, 0.257);
+    text-align: center;
+    background-color: #332f2475;
+    color: white;
+    padding: 2.5em 0;
+}
+
 /* CONTENT */
 .content {
     background-color: #fcf7f2;
     padding: 8em 0;
+}
+
+.page-sub .content {
+    background-color: white;
 }
 
 .row {
@@ -127,6 +147,20 @@ header a:hover {
 
 .one-half {
     max-width: 47%;
+}
+
+.one-third {
+    max-width: 31%;
+}
+
+.column.one-third h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.column.one-third img {
+    width: 540.5px;
+    height: 270px;
 }
 
 /* NOTICE */
@@ -181,6 +215,10 @@ td.title {
 
 .button:hover {
     background-color: #658446;
+}
+
+.column.one-third .button {
+    padding: 0.8em 4.2em;
 }
 
 /* FOOTER */
