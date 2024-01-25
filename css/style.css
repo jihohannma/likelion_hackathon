@@ -114,6 +114,12 @@ header a:hover {
     background-position: center;
 }
 
+.subhero.policy {
+    background-image: url(../IMG/main_policy.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 .subhero.map {
     background-image: url(../IMG/main_map.jpg);
     background-size: cover;
@@ -236,6 +242,10 @@ td.title {
     padding-left: 2em;
 }
 
+.notice .pagination {
+    padding-top: 2em;
+}
+
 /* BUTTON */
 .button {
     display: inline-block;
@@ -255,6 +265,55 @@ td.title {
 .column.one-third .button {
     padding: 0.8em 4.2em;
 }
+
+.bigbutton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+    background-color:rgb(80, 64, 51);
+    padding: 1.2em 10em;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+/* SEARCH BAR */
+.searchbar input[type=text]{
+    position: relative;
+    float: right;
+    padding: 6px 20px;
+    margin-top: 8px;
+    font-size: 17px;
+    width: 23%;
+    border: 2px solid #9ec17c;
+    border-radius: 25px;
+    border-color: #9ec17c;
+}
+
+/* PAGINATION */
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color.10s;
+    
+    /* Center vertically */
+    position: relative;
+    top: 50%;
+    left: 40%;
+}
+
+/*Style the active/current link*/
+.pagination a.active {
+    background-color: white;
+    color:black;
+    font-weight: 800;
+}
+
+/* Add a grey background color on mouse-over*/
+.pagination a:hover:not(.active) {background-color: #ddd;}
 
 /* FOOTER */
 .site-footer {
