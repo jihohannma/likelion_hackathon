@@ -126,6 +126,17 @@ header a:hover {
     background-position: center;
 }
 
+.subhero.signup {
+    background-image: url(../IMG/sign_up.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.subhero.signup h1 {
+    font-size: 5em;
+    padding: 2em 0;
+}
+
 /* VIDEO */
 .video {
     padding-top: 5em;
@@ -204,6 +215,22 @@ header a:hover {
     height: 270px;
 }
 
+.container.sub img {
+    max-height: 300px;
+    width: 1150px;
+    object-fit: cover;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.container.sub h2 {
+    padding-top: 1em;
+}
+
+.container.sub p {
+    font-size: 1.1em;
+    line-height: 2.5;
+}
+
 /* NOTICE */
 .notice {
     padding: 8em 0;
@@ -276,6 +303,17 @@ td.title {
     padding: 1.2em 10em;
     border-radius: 15px;
     margin-top: 20px;
+}
+
+.button.sub {
+    font-size: 1.4em;
+    padding: 1.3em 10em;
+    border-radius: 15px;
+}
+
+.center {
+    margin-top: 5em;
+    text-align: center;
 }
 
 /* SEARCH BAR */
