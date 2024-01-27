@@ -103,7 +103,7 @@ header a:hover {
 }
 
 .subhero.internet {
-    background-image: url(../IMG/main_internet.jpg);
+    background-image: url(../IMG/internet2.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -216,9 +216,9 @@ header a:hover {
 }
 
 .container.sub img {
-    max-height: 300px;
+    /* max-height: 300px;
     width: 1150px;
-    object-fit: cover;
+    object-fit: cover; */
     border: 1px solid rgb(225, 225, 225);
 }
 
