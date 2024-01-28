@@ -14,6 +14,11 @@ img {
     height: auto;
 }
 
+.container.map {
+    padding-top: 3em;
+    padding-bottom: 10em;
+}
+
 
 /* GLOBAL COLORS */
 body { color: #332f24; }

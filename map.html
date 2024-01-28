@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,13 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body class="page-sub">
-    
+
     <header>
         <div class="container">
             <div class="site-id">
@@ -38,15 +40,117 @@
         <section class="hero">
             <div class="subhero map">
                 <h1>우리 동네 복지관</h1>
-            </div>   
+            </div>
         </section>
 
-        <section class="map">
+        <section class="video">
 
-            <h1 class="sub-title">사이버범죄 예방수칙</h1>
+            <h1 class="sub-title">내 주변 복지관 찾기</h1>
 
-            <div class="container">
-                <iframe width="728" height="409" src="https://www.youtube.com/embed/xe8tdcLZ7Gc?si=Ny6goBnTcTOCLlGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="container map">
+                <!-- 지도를 표시할 div 입니다 -->
+                <div id="map" style="width:100%;height:600px;"></div>
+
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e71039e6ddad08169e5e9545cfaa9e55
+            "></script>
+                <script>
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                        mapOption = {
+                            center: new kakao.maps.LatLng(37.66274676078221, 127.0428821010287), // 지도의 중심좌표
+                            level: 5 // 지도의 확대 레벨
+                        };
+
+                    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                    // // 마커가 표시될 위치입니다 
+                    // var markerPosition  = new kakao.maps.LatLng(37.66273543384002, 127.04280177653582); 
+
+                    // // 마커를 생성합니다
+                    // var marker = new kakao.maps.Marker({
+                    //     position: markerPosition
+                    // });
+
+                    var positions = [
+                        {
+                            content: '<div>서울시립도봉노인복지회관</div>',
+                            title: '서울시립도봉노인복지회관',
+                            latlng: new kakao.maps.LatLng(37.65950795801781, 127.03597823720474)
+                        },
+                        {
+                            content: '<div>윗들경로당</div>',
+                            title: '윗들경로당',
+                            latlng: new kakao.maps.LatLng(37.66779719223635, 127.04511920498793)
+                        },
+                        {
+                            content: '<div>방학동어르신복지관</div>',
+                            title: '방학동어르신복지관',
+                            latlng: new kakao.maps.LatLng(37.671126214273635, 127.0323304331598)
+                        },
+                        {
+                            content: '<div>신도브래뉴아파트경로당</div>',
+                            title: '신도브래뉴아파트경로당',
+                            latlng: new kakao.maps.LatLng(37.65655214654459, 127.04520503567133)
+                        },
+                        {
+                            content: '<div>방학노인정</div>',
+                            title: '방학노인정',
+                            latlng: new kakao.maps.LatLng(37.6700731724297, 127.03117171893376)
+                        }
+                    ];
+
+                    // 마커 이미지의 이미지 주소입니다
+                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+                    for (var i = 0; i < positions.length; i++) {
+
+                        // 마커 이미지의 이미지 크기 입니다
+                        var imageSize = new kakao.maps.Size(24, 35);
+
+                        // 마커 이미지를 생성합니다    
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions[i].latlng, // 마커를 표시할 위치
+                            title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                            image: markerImage // 마커 이미지 
+                        });
+                    }
+
+                    // 마커가 지도 위에 표시되도록 설정합니다
+                    marker.setMap(map);
+
+                    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+                    // marker.setMap(null);    
+
+                    // 마커에 표시할 인포윈도우를 생성합니다 
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: positions[i].content // 인포윈도우에 표시할 내용
+                    });
+
+                    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+                    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+                    // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+                    function makeOverListener(map, marker, infowindow) {
+                        return function () {
+                            infowindow.open(map, marker);
+                        };
+                    }
+
+                    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+                    function makeOutListener(infowindow) {
+                        return function () {
+                            infowindow.close();
+                        };
+                    }
+
+                </script>
             </div>
 
         </section>
@@ -60,7 +164,7 @@
             <div class="site-id">
                 <h1>당신의 삶</h1>
                 <p>
-                    당신의 삶 | 대표 : 한지호 | 사업자등록번호 :  101-01-12345 <br>
+                    당신의 삶 | 대표 : 한지호 | 사업자등록번호 : 101-01-12345 <br>
                     주소 : 서울특별시 종로구 삼일대로 467(경운동) | 개인정보관리책임자 : 한지호<br>
                     전화번호 : 02-0111-0101 | E-mail : uhm@likelion.org
                 </p>
